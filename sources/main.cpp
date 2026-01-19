@@ -171,6 +171,15 @@ void handleImage(LoadedImage &img, float lumin_min, float lumin_max, bool invert
 
 int main(void)
 {
+    /*
+    To-do's :
+
+    1. Image saving.
+    2. Image zooming.
+    3? Sort modes (red channel,blue channel,green channel, luminosity)
+
+    */
+
     // Window configuration flags
 
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
@@ -378,6 +387,12 @@ int main(void)
 
         EndDrawing();
     }
+
+    UnloadImage(img.original);
+    UnloadImage(img.mask);
+    UnloadImage(img.sorted);
+
+    UnloadTexture(img_tex);
 
     CloseWindow();
 
